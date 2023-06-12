@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("image_icons/fon.jpg");
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start
+}
+
+.container {
+    margin-left: 30px;
+}
+
+.container-block {
+    display: flex;
+    justify-content: center;
+    padding: 0.8rem;
+}
+
+div img {
+    width: 400px;
+    border-radius: 50%;
+    margin-top: 60px;
+    opacity: 0.6;
+}
+
+.flexrow-container {
+    align-items: center;
+    align-self: flex-start;
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+    margin-right: 20px;
+}
+
+.theme-selector {
+    border: 1px solid #d1dae3;
+    border-radius: 100%;
+    height: 35px;
+    margin: 0 8px;
+    transition: tranform 150ms ease-in-out, box-shadow 200ms ease-in-out;
+    width: 35px;
+}
+
+.standard {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+    color: #ffdfdb;
+    transition: 0.3s linear;
+    overflow: hidden;
+}
+
+.light {
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+    color: #1a150e;
+    transition: 0.3s linear;
+}
+
+.darker {
+    background-image: linear-gradient(100deg, #001214, #001f29);
+    color: white;
+    transition: 0.3s linear;
+}
+
+.standard-theme {
+    background-image: linear-gradient(100deg, #575656, #062e3f);
+}
+
+.light-theme {
+    background-image: linear-gradient(100deg, #d4f1ff, #ffffff);
+}
+
+.darker-theme {
+    background-image: linear-gradient(100deg, #001214, #001f29);
+}
+
+#addBtn {
+    font-size: 17px;
+    border-top-right-radius: 15px;
+    border-bottom-right-radius: 15px;
+    min-width: 100px;
+    background-color: rgb(26, 82, 63);
+    color: aliceblue;
+}
+
+input {
+    border: none;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    padding: 15px;
+    font-size: 16px;
+}
+
+h1 {
+    font-family: 'Dancing Script';
+    color: #0b3e29;
+    font-size: 50px;
+    text-align: center;
+}
+
+.batton-container {
+    margin-left: 30px;
+   
+}
+
+.task-list {
+    max-width: 400px;
+    list-style: none;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(9, 63, 25);
+    border-radius: 35px;
+    margin: 10px 20px;
+    cursor: pointer;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+p {
+    margin-left: 4px;
+    flex: 1;
+    font-size: 18px;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 20px;
+}
+
+#start-message {
+    margin: 10px;
+}
+
+.check-btn,
+.delete-btn {
+    font-size: 19px;
+    cursor: pointer;
+    width: 2em;
+    height: 2em;
+    border-radius: 80%;
+    margin: 0 5px;
+    background: #0b3e29;
+    color: aliceblue;
+}
+
+.all,
+.delete,
+.active {
+    color: #d1dae3;
+    background-color: rgb(26, 82, 63);
+    border-radius: 20%;
+    padding: 10px 15px 10px 15px;
+    margin-left: 40px;
+    font-size: 17px;
+   
+}
+
+.fas {
+    font-weight: 900;
+    font-family: "Font Awesome 5 Free";
+}
+
+.fas:before {
+    content: "\f00c";
+}
+
+.date {
+    display: flex;
+    justify-content: center;
+
+}
+
+.datetime {
+    width: 200px;
+    background: none;
+}
+
+.completed {
+    text-decoration: line-through;
+    opacity: 0.5;
+    transition: 0.2s;
+}

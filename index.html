@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My To List</title>
+
+    <script src="script.js" defer=""></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=EB+Garamond:ital@0;1&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css"
+        integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous">
+</head>
+
+<body class="main">
+    <div>
+        <img src="image_icons/todo3.jpg">
+    </div>
+    <div class="container">
+
+        <h1 id="title" class="darker-title">My To Do List</h1>
+
+        <div class="container-block">
+            <input type="text" class="darker-input" id="taskInput" placeholder="Add a task.">
+            <input class="datetime" id="taskDate" type="datetime-local" name="partydate" value="2017-06-01T08:30">
+            <button id="addBtn" type="submit">Add Task</button>
+        </div>
+
+        <div class="batton-container">
+            <button class="all">All Task</button>
+            <button class="delete">Delete All</button>
+            <button class="active">Active</button>
+        </div>
+        
+        <div class="task-list">
+            <p id="start-message"></p>
+
+        </div>
+    </div>
+    <div class="flexrow-container">
+        <div class="standard-theme theme-selector"></div>
+        <div class="light-theme theme-selector"></div>
+        <div class="darker-theme theme-selector"></div>
+    </div>
+</body>
+</div>
+</html>
