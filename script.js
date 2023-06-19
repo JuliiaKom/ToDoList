@@ -18,6 +18,15 @@ class Task {
         dt.innerText = this.dateTime;
         this.taskRelatedDiv.append(dt);
 
+        const currentDate = new Date();
+        const currentDateTime = currentDate.getTime();
+
+        const taskDateTime = new Date(this.dateTime).getTime();
+        if(taskDateTime < currentDateTime){
+            dt.classList.add("overdue");
+            dt.innerText += '\nInvalid date';
+        }
+
 
         let checkBox = document.createElement("input");
         let checked = document.createElement("button");
@@ -59,7 +68,12 @@ class TaskStorage {
     }
 
     load() {
-        // load lasks from localSorage
+        const savedTask = localStorage.getItem("tasks");
+        
+        if (savedTask){
+            this.tasks = JSON.parse(savedTask);
+            this.tasks.forEach(t => t.putTaskInDiv(taskListDiv));
+        }
     }
 
     addTask() {
@@ -72,7 +86,7 @@ class TaskStorage {
             newTask.putTaskInDiv(taskListDiv);
             taskInput.value = "";
             this.tasks.push(newTask);
-            savelocal(taskInput.value);
+            this.saveTasks();
         }
     }
 
@@ -88,7 +102,10 @@ class TaskStorage {
     deleteTask(task) {
         task.taskRelatedDiv.remove();
         this.removeItem(this.tasks, task);
-        // save tasks to localStorage
+        this.saveTasks();
+    }
+    saveTasks() {
+        localStorage.setItem("tasks",JSON.stringify(this.tasks));
     }
 }
 
@@ -115,7 +132,7 @@ taskInput.addEventListener("keydown", function (e) {
 
 function changeTheme(color) {
     localStorage.setItem("savedTheme", color);
-    savedTheme = localStorage.getItem("savedTheme");
+    savedTheme = color;
 
     document.body.className = color;
 
@@ -131,3 +148,42 @@ function changeTheme(color) {
     taskInput.className = `${color}-taskInput`;
 
 }
+
+class ButtonContainer {
+    constructor() {
+      this.allBtn = document.querySelector(".all");
+      this.deleteAllBtn = document.querySelector(".delete");
+      this.activeBtn = document.querySelector(".active");
+  
+      this.allBtn.addEventListener("click", this.showAllTasks.bind(this));
+      this.deleteAllBtn.addEventListener("click", this.deleteAllTasks.bind(this));
+      this.activeBtn.addEventListener("click", this.showActiveTasks.bind(this));
+    }
+  
+    showAllTasks() {
+      const allTasks = taskStorage.tasks;
+      taskListDiv.innerHTML = '';
+  
+      for (let task of allTasks) {
+        task.putTaskInDiv(taskListDiv);
+      }
+    }
+  
+    deleteAllTasks() {
+      taskStorage.tasks = [];
+      taskListDiv.innerHTML = '';
+      // clean local storage
+      localStorage.clear();
+    }
+  
+    showActiveTasks() {
+      const activeTasks = taskStorage.tasks.filter(task => !task.isDone);
+      taskListDiv.innerHTML = '';
+  
+      for (let task of activeTasks) {
+        task.putTaskInDiv(taskListDiv);
+      }
+    }
+  }
+  
+  let buttonContainer = new ButtonContainer();
